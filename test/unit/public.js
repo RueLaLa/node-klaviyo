@@ -1,7 +1,7 @@
 'use strict';
 
 const
-    Klaviyo = require('node-klaviyo'),
+    Klaviyo = require('../../lib/klaviyo'),
     {
         KlaviyoError
     } = require('../../lib/errors.js'),
@@ -75,7 +75,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/identify')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -100,7 +100,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/identify')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -127,7 +127,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/identify')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 1;
                     })
@@ -174,7 +174,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -202,7 +202,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -232,7 +232,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 1;
                     })
@@ -264,7 +264,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -315,7 +315,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -347,7 +347,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 1;
                     })
@@ -381,7 +381,7 @@ describe('Public', function () {
                         encodedQueryParams: true
                     })
                     .get('/api/track')
-                    .query(queryObject => { 
+                    .query(queryObject => {
                         const decoded = JSON.parse(Buffer.from(queryObject.data, 'base64').toString('ascii'));
                         return deepEqual(decoded, data) && queryObject.test == 0;
                     })
@@ -397,11 +397,11 @@ describe('Public', function () {
 function deepEqual(object1, object2) {
     const keys1 = Object.keys(object1);
     const keys2 = Object.keys(object2);
-  
+
     if (keys1.length !== keys2.length) {
       return false;
     }
-  
+
     for (const key of keys1) {
       const val1 = object1[key];
       const val2 = object2[key];
@@ -413,7 +413,7 @@ function deepEqual(object1, object2) {
         return false;
       }
     }
-  
+
     return true;
 }
 

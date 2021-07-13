@@ -1,7 +1,7 @@
 'use strict';
 
 const
-    Klaviyo = require('node-klaviyo'),
+    Klaviyo = require('../../lib/klaviyo'),
     {
         KlaviyoError
     } = require('../../lib/errors.js'),
@@ -99,7 +99,7 @@ describe('Profiles', function () {
                     .query(query)
                     .reply(200, profileData);
 
-                KlaviyoClient.profiles.updateProfile({ 
+                KlaviyoClient.profiles.updateProfile({
                     profileId: fakeProfileId,
                     properties: {
                         myCustomProperty: true
@@ -131,7 +131,7 @@ describe('Profiles', function () {
                     .query(query)
                     .reply(200, timelineData);
 
-                KlaviyoClient.profiles.getProfileMetricsTimeline({ 
+                KlaviyoClient.profiles.getProfileMetricsTimeline({
                     profileId: fakeProfileId,
                     since: nowTimestamp
                 }).should.eventually.eql(timelineData);
@@ -161,7 +161,7 @@ describe('Profiles', function () {
                     .query(query)
                     .reply(200, timelineData);
 
-                KlaviyoClient.profiles.getProfileMetricsTimelineById({ 
+                KlaviyoClient.profiles.getProfileMetricsTimelineById({
                     profileId: fakeProfileId,
                     metricId: fakeMetricId,
                     since: nowTimestamp
